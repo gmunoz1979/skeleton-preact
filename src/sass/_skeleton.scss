@@ -1,0 +1,13 @@
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+.skeleton {
+  background-color: rgba(0, 0, 0, 0.1);
+  height: 60px;
+  line-height: 12px;
+  text-align: center;
+  width: 240px;
+}
