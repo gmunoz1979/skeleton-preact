@@ -54,14 +54,21 @@ const entry = [];
 ISDEVELOPMENT && entry.push('babel-polyfill');
 entry.push(path.resolve(__dirname, 'src', file_entry));
 
+const output = {
+  path: path.resolve(__dirname, path_output),
+  publicPath: '/',
+  filename: 'js/skeleton-preact.js',
+  sourceMapFilename: '[file].map',
+};
+
+if (ISPRODUCTION) {
+  output.library = 'migtra-user-cognito';
+  output.libraryTarget = 'commonjs2';
+}
+
 const config = {
   entry: entry,
-  output: {
-    path: path.resolve(__dirname, path_output),
-    publicPath: '/',
-    filename: 'js/skeleton-preact.js',
-    sourceMapFilename: '[file].map',
-  },
+  output: output,
   devtool: ISPRODUCTION ? 'eval' : 'source-map',
   module: {
     rules: [
